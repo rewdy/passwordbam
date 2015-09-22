@@ -1,0 +1,385 @@
+@charset "UTF-8";
+/**
+ * @file
+ * Your Project Stylesheet
+*/
+/*	-----
+	Reset
+*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em,
+img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, hr,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figure, figcaption, hgroup,
+menu, footer, header, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+  display: block;
+}
+
+/*	----------
+	Essentials
+*/
+a {
+  color: #3b81f7;
+  transition: all 0.3s ease-out;
+}
+a:hover {
+  color: #000;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*	-------------------------- 
+	Type and other core styles
+*/
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.395em;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 1.2em;
+}
+
+h2 {
+  margin-bottom: 0.75em;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+h3 {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+}
+
+p, ul, ol, dl, blockquote, pre, table, address, figure {
+  margin: 0 0 1.5em 0;
+}
+
+ul li,
+ol li {
+  margin-left: 3em;
+}
+ul.inline li,
+ol.inline li {
+  margin: 0 0.75em 0 0;
+  display: inline;
+}
+ul.lined,
+ol.lined {
+  border-bottom: 1px solid #ddd;
+}
+ul.lined li,
+ol.lined li {
+  margin-left: 0;
+  list-style-position: inside;
+  padding: 0.25em 0.25em 0.25em 0.5em;
+  border-top: 1px solid #ddd;
+}
+ul.blocked li,
+ol.blocked li {
+  margin: 0;
+  list-style: none;
+}
+ul.blocked li a,
+ol.blocked li a {
+  display: block;
+  padding: 0.25em;
+}
+ul.blocked li a:hover,
+ol.blocked li a:hover {
+  background-color: #e6e6e6;
+}
+ul.blocked.lined li,
+ol.blocked.lined li {
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid #ddd;
+}
+table caption {
+  font-style: italic;
+}
+table tr th, table tr td {
+  padding: 0.5em 1em 0.5em 0.5em;
+  border-bottom: 1px solid #ddd;
+}
+table tr th {
+  padding-top: 1em;
+  text-align: left;
+  font-weight: 600;
+  background-color: #f2f2f2;
+}
+table.inline {
+  width: auto;
+}
+
+blockquote {
+  padding-left: 1.5em;
+  margin-left: 1.5em;
+  font-size: 1.15em;
+  line-height: 1.5em;
+  font-weight: 300;
+  border-left: 1px solid #ddd;
+}
+blockquote cite {
+  margin-top: 0.75em;
+  margin-right: 3em;
+  display: block;
+  text-align: right;
+}
+blockquote cite:before {
+  content: "– ";
+}
+
+code, pre {
+  padding: 0.2em;
+  font-size: 0.8em;
+  background-color: #e6e6e6;
+  color: #555555;
+}
+
+pre {
+  padding: 0.5em 0.8em;
+  white-space: pre-wrap;
+}
+
+acronym, abbr {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+
+figure {
+  float: left;
+  padding: 0.5em;
+  max-width: 100%;
+  border: 1px solid #ddd;
+}
+figure + * {
+  clear: left;
+}
+
+figcaption {
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+hr {
+  margin: 1.5em 0;
+  border-top: 1px solid #ddd;
+}
+hr.narrow {
+  margin: 1.5em 25%;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+small,
+.small {
+  font-size: 0.8em;
+}
+
+big,
+.large,
+.big {
+  font-size: 1.2em;
+}
+
+/* Image and figure alignment */
+img.left,
+figure.left {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+img.right,
+figure.right {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+figure.left + *,
+figure.right + * {
+  clear: none;
+}
+
+@media only screen and (max-width: 640px) {
+  img.left, figure.left {
+    float: none;
+    margin: 0 0 1em 0;
+  }
+
+  figure.left,
+  figure.right {
+    float: left;
+  }
+  figure.left + *,
+  figure.right + * {
+    clear: left;
+  }
+}
+/* Special Styles */
+.attn {
+  margin-bottom: 1.5rem;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+.intro {
+  margin-bottom: 1.5rem;
+  font-size: 1.8em;
+  font-weight: 300;
+  line-height: 1.5em;
+  font-style: italic;
+  color: #666;
+}
+
+body {
+  background-color: #e6e6e6;
+}
+
+#site-header {
+  padding: 1.5em 1em;
+  text-align: center;
+  background-color: #3b81f7;
+  color: #fff;
+}
+#site-header .twist {
+  display: inline-block;
+  font-weight: 600;
+  transform: rotate(-10deg) translateY(-2px);
+}
+
+#site-header h1:before {
+  content: "**** ";
+}
+
+#content {
+  background-color: #f7f7f7;
+  padding: 2em 1em;
+  text-align: center;
+  min-height: 75vh;
+}
+
+#site-footer {
+  padding: 1em;
+  text-align: center;
+  font-size: 0.8em;
+  color: #666;
+}
+
+#password-holder {
+  display: inline-block;
+  background-color: #e6e6e6;
+  color: #666;
+  padding: 0.5em 1em;
+}
+
+#password,
+.button {
+  display: inline-block;
+  line-height: 1.5em;
+}
+
+#password {
+  font-family: monospace;
+}
+
+.button {
+  position: relative;
+  margin-bottom: -0.2em;
+  margin-left: 0.75em;
+  margin-right: -0.3em;
+  width: 1.25em;
+  height: 1.25em;
+  text-indent: -300px;
+  overflow: hidden;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#reset {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI0IDI0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6Izk5OTk5OTt9PC9zdHlsZT48Zz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjEuMiwxNC4xYy0xLjEsNC40LTQuNyw3LjQtOS4yLDcuNGMtMi40LDAtNC44LTEtNi41LTIuNmwtMS42LDEuNmMtMC4xLDAuMS0wLjMsMC4yLTAuNiwwLjJjLTAuNCwwLTAuOC0wLjQtMC44LTAuOHYtNS41YzAtMC40LDAuNC0wLjgsMC44LTAuOGg1LjVjMC40LDAsMC44LDAuNCwwLjgsMC44YzAsMC4yLTAuMSwwLjQtMC4yLDAuNmwtMS43LDEuN2MxLjIsMS4xLDIuNywxLjcsNC4zLDEuN2MyLjIsMCw0LjItMS4xLDUuNC0zYzAuMy0wLjUsMC40LTEsMC43LTEuNGMwLjEtMC4yLDAuMi0wLjMsMC40LTAuM2gyLjRDMjEsMTMuNiwyMS4yLDEzLjgsMjEuMiwxNC4xQzIxLjIsMTQsMjEuMiwxNCwyMS4yLDE0LjF6IE0yMS41LDkuNmMwLDAuNC0wLjQsMC44LTAuOCwwLjhoLTUuNWMtMC40LDAtMC44LTAuNC0wLjgtMC44YzAtMC4yLDAuMS0wLjQsMC4yLTAuNmwxLjctMS43Yy0xLjItMS4xLTIuNy0xLjctNC4zLTEuN2MtMi4yLDAtNC4yLDEuMS01LjQsM2MtMC4zLDAuNS0wLjQsMS0wLjcsMS40Yy0wLjEsMC4yLTAuMiwwLjMtMC40LDAuM0gzLjFjLTAuMiwwLTAuNC0wLjItMC40LTAuNGMwLDAsMC0wLjEsMC0wLjFDMy44LDUuNSw3LjQsMi41LDEyLDIuNWMyLjQsMCw0LjgsMSw2LjUsMi42bDEuNi0xLjZjMC4xLTAuMSwwLjMtMC4yLDAuNi0wLjJjMC40LDAsMC44LDAuNCwwLjgsMC44VjkuNnoiLz48L2c+PC9zdmc+);
+}
+
+#copy {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI0IDI0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4uc3Qwe2ZpbGw6Izk5OTk5OTt9PC9zdHlsZT48Zz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjEuOCw3LjR2MTMuM2MwLDAuNi0wLjUsMS4xLTEuMSwxLjFIMTAuMmMtMC42LDAtMS4xLTAuNS0xLjEtMS4xdi0zLjJoLTZjLTAuNiwwLTEuMS0wLjUtMS4xLTEuMVY5LjJjMC0wLjYsMC4zLTEuNCwwLjctMS44bDQuNS00LjVjMC40LTAuNCwxLjItMC43LDEuOC0wLjdoNC42YzAuNiwwLDEuMSwwLjUsMS4xLDEuMXYzLjZjMC40LTAuMywxLTAuNCwxLjQtMC40aDQuNkMyMS40LDYuNCwyMS44LDYuOSwyMS44LDcuNHogTTEzLjQsOC4xVjMuNkg5LjJ2NC42YzAsMC42LTAuNSwxLjEtMS4xLDEuMUgzLjZ2N2g1LjZ2LTIuOGMwLTAuNiwwLjMtMS40LDAuNy0xLjhMMTMuNCw4LjF6IE00LjUsNy44aDMuM1Y0LjVMNC41LDcuOHogTTIwLjQsNy44aC00LjJ2NC42YzAsMC42LTAuNSwxLjEtMS4xLDEuMWgtNC42djdoOS44VjcuOHogTTExLjUsMTJoMy4zVjguN0wxMS41LDEyeiIvPjwvZz48L3N2Zz4=);
+}
+
+#options {
+  margin: 2em auto;
+  padding: 1em;
+  max-width: 640px;
+  border: 1px solid #ddd;
+}
+
+.form-item {
+  margin-bottom: 1.5em;
+}
+
+label {
+  font-size: 0.8em;
+}
+
+label:not([for]) {
+  display: inline-block;
+  padding: 0.15em 0.35em;
+  margin: 0.2em 0.2em;
+  line-height: 1.5em;
+  color: #666;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+input[type=number] {
+  border: 1px solid #ddd;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  background-color: #fff;
+}
+
+.bottom {
+  margin-bottom: 0;
+}
+
+/*# sourceMappingURL=style.css.map */

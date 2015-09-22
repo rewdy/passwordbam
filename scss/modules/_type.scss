@@ -1,0 +1,215 @@
+/*	-------------------------- 
+	Type and other core styles
+*/
+
+body {
+	font-family:$font-family;
+	font-weight:$font-weight-normal;
+	font-size:$font-size;
+	line-height:$line-height;
+	-webkit-font-smoothing:antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family:$alt-font;
+	font-weight:$font-weight-normal;
+	font-size:1em;
+	line-height:($font-scale * 0.93) + em;
+}
+
+h1 {
+	margin-bottom:0;
+	font-size:1.2em;
+}
+h2 {
+	margin-bottom:0.75em;
+	font-size:1em;
+	font-weight:$font-weight-bold;
+}
+h3 {
+	margin-bottom:1em;
+	font-size:1.5em;
+}
+
+p, ul, ol, dl, blockquote, pre, table, address, figure {
+	margin:0 0 $line-height 0;
+}
+
+ul,
+ol {
+	li {
+		margin-left:($font-scale*2) + em;
+	}
+	&.inline li {
+		margin:0 (($font-scale/2) + em) 0 0;
+		display:inline;
+	}
+	&.lined {
+		border-bottom:1px solid $line-color;
+		li {
+			margin-left:0;
+			list-style-position:inside;
+			padding:0.25em 0.25em 0.25em 0.5em;
+			border-top:1px solid $line-color;
+		}
+	}
+	&.blocked li {
+		margin:0;
+		list-style:none;
+		a {
+			display:block;
+			padding:0.25em;
+			&:hover {
+				background-color:$screen;
+			}
+		}
+	}
+	&.blocked.lined {
+		li {
+			padding:0;
+		}
+	}
+}
+
+table {
+	width:100%;
+	border-collapse:collapse;
+	border-top:1px solid $line-color;
+	caption {
+		font-style:italic;
+	}
+	tr {
+		th, td {
+			padding:0.5em 1em 0.5em 0.5em;
+			border-bottom:1px solid $line-color;
+		}
+		th {
+			padding-top:1em;
+			text-align:left;
+			font-weight:$font-weight-bold;
+			background-color:#f2f2f2;
+		}
+	}
+	&.inline {
+		width:auto;
+	}
+}
+
+blockquote {
+	padding-left:$line-height;
+	margin-left:$line-height;
+	font-size:1.15em;
+	line-height:$line-height;
+	font-weight:$font-weight-light;
+	border-left:1px solid $line-color;
+	cite {
+		margin-top:($font-scale/2) + em;
+		margin-right:($font-scale*2) + em;
+		display:block;
+		text-align:right;
+		&:before {
+			content:"– ";
+		}
+	}
+}
+
+code, pre {
+	padding:0.2em;
+	font-size:$font-small;
+	background-color:$screen;
+	color:lighten($text-color, 20%);
+}
+pre {
+	padding:0.5em 0.8em;
+	white-space:pre-wrap;
+}
+
+acronym, abbr {
+	border-bottom:1px dotted $text-light;
+	cursor:help;
+}
+
+figure {
+	float:left;
+	padding:0.5em;
+	max-width:100%;
+	border:1px solid $line-color;
+	+ * {
+		clear:left;
+	}
+}
+figcaption {
+	margin-top:0.5em;
+	font-size:$font-small;
+	color:$text-light;
+	font-style:italic;
+	text-align:center;
+}
+
+hr {
+	margin:$line-height 0;
+	border-top:1px solid $line-color;
+	&.narrow {
+		margin:$line-height 25%;
+	}
+}
+
+strong, b {
+	font-weight:$font-weight-bold;
+}
+small,
+.small {
+	font-size:$font-small;
+}
+
+big, 
+.large, 
+.big {
+	font-size:$font-large;
+}
+
+/* Image and figure alignment */
+img.left,
+figure.left {
+	float:left;
+	margin:0 1em 1em 0;
+}
+img.right,
+figure.right {
+	float:right;
+	margin:0 0 1em 1em;
+}
+figure.left, 
+figure.right {
+	+ * {
+		clear:none;
+	}
+}
+@media only screen and (max-width:$breakpoint-sm) {
+	img.left, figure.left {
+		float:none;
+		margin:0 0 1em 0;
+	}
+	figure.left, 
+	figure.right {
+		float:left;
+		+ * {
+			clear:left;
+		}
+	}
+}
+
+/* Special Styles */
+.attn {
+	margin-bottom:$font-scale + rem;
+	font-size:$font-large;
+	line-height:$line-height;
+}
+.intro {
+	margin-bottom:$font-scale + rem;
+	font-size:1.8em;
+	font-weight:$font-weight-light;
+	line-height:$line-height;
+	font-style:italic;
+	color:$text-light;
+}

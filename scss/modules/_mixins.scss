@@ -1,0 +1,20 @@
+// All mixins all the time
+@mixin clearfixed() {
+	content: " ";
+	display: block;
+	clear: left;
+	height: 0;
+	overflow: hidden;
+}
+
+@mixin transition($els:all, $duration:0.3s, $easing:ease-out) {
+	transition:$els $duration $easing;
+}
+
+@function contrasting-text($color) {
+	@if (lightness($color) > 50%) {
+		@return #000; // black for light backgrounds
+	} @else {
+		@return #fff; // white for darker backgrounds
+	}
+}
