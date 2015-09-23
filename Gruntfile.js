@@ -20,6 +20,13 @@ module.exports = function(grunt) {
         dest: 'css/style.processed.css'
       }
     },
+    cssmin: {
+      target: {
+        files: {
+          'css/style.min.css': 'css/style.processed.css'
+        }
+      }
+    },
     uglify: {
       options: {
         mangle: false
@@ -31,10 +38,11 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['scss/**/*.scss'],
+      files: ['scss/**/*.scss', 'js/script.js'],
       tasks: [
         'sass',
         'autoprefixer',
+        'cssmin',
         'uglify'
       ]
     }
@@ -43,8 +51,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'uglify']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify']);
 
 }

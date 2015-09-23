@@ -16,6 +16,16 @@ var pwbam = function() {
 		start : function() {
 			// set pw initially
 			pwbam.genPW();
+			// apply behavior to password input
+			passwordInput = document.getElementById('password');
+			copyTooltip = document.getElementById('copy-directions');
+			pwbam.addEvent(passwordInput, 'focus', function(e){
+				this.select();
+				pwbam.addClass(copyTooltip, 'show');
+			});
+			pwbam.addEvent(passwordInput, 'blur', function(e){
+				pwbam.removeClass(copyTooltip, 'show');
+			});
 			// apply behaviors to reset button
 			refreshButton = document.getElementById('reset');
 			pwbam.addEvent(refreshButton, 'click', function(e){
@@ -24,7 +34,7 @@ var pwbam = function() {
 				return false;
 			});
 			// apply behavior to form inputs
-			formEls = document.querySelectorAll('input');
+			formEls = document.querySelectorAll('input:not(#password)');
 			for (i=0; i<formEls.length; i++) {
 				pwbam.addEvent(formEls[i], 'change', function(e) {
 					pwbam.genPW();
@@ -61,7 +71,21 @@ var pwbam = function() {
 			for (i=0; i<length; i++) {
 				pw += chars.charAt(Math.floor(Math.random() * chars.length));
 			}
-			document.getElementById('password').innerHTML = pw;
+			document.getElementById('password').value = pw;
+		},
+		addClass : function(el, className) {
+			if (el.classList) {
+				el.classList.add(className);
+			} else {
+				el.className += ' ' + className;
+			}
+		},
+		removeClass : function(el, className) {
+			if (el.classList) {
+				el.classList.remove(className);
+			} else {
+				el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			}
 		},
 		addEvent : function(obj, evType, fn) {
 			if (obj.addEventListener){ 
